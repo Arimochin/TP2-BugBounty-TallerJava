@@ -49,7 +49,7 @@ public class TodoService {
         Date current = new Date();
         for (ToDo todo : getTodoList()) {
             long segundosDelTodo = (current.getTime() - todo.getDate().getTime()) / 1000;
-            if (segundosDelTodo < sec) {
+            if (segundosDelTodo > sec) {
                 svc.addLog("Se borró automáticamente el todo, " + todo.getContent(), UserService.DEFAULT_USER);
                 repo.delete(todo);
             }
