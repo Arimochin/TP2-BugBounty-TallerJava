@@ -35,6 +35,7 @@ public class LogService {
 			logs.put(user, list);
 		}
 		list.add(log);
+		//logs.put(user, list);
 	}
 
 	/**
