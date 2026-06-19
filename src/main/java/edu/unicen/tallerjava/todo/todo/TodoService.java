@@ -85,6 +85,7 @@ public class TodoService {
             nuevo.setUser(user);
         }
         nuevo.setId(UUID.randomUUID());
+        nuevo.setContent(content);
         addTODO(nuevo);
         return nuevo;
     }
