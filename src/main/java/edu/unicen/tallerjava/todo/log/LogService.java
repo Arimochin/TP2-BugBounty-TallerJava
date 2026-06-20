@@ -29,12 +29,14 @@ public class LogService {
 	 */
 	public void addLog(String action, User user) {
 		Log log = new Log(UUID.randomUUID(), action, user);
-		List<Log> list = logs.get(user);
-		if (list == null) {
-			list = new ArrayList<>();
-			logs.put(user, list);
+		synchronized (this) {
+			List<Log> list = logs.get(user);
+			if (list == null) {
+				list = new ArrayList<>();
+				logs.put(user, list);
+			}
+			list.add(log);
 		}
-		list.add(log);
 		//logs.put(user, list);
 	}
 
