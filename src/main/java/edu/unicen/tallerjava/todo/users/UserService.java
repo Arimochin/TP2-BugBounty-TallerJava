@@ -40,6 +40,9 @@ public class UserService {
     }
 
     public User addUser(User user) {
+        if(user == null){
+            throw new IllegalArgumentException();
+        }
         logSvc.addLog("Se agregó el usuario " + user.getName(), user);
         return this.repo.save(user);
     }
