@@ -11,7 +11,7 @@ Completar la siguiente tabla con un análisis de cada test fallido. Para cada un
 | `TodoServiceTest.testTimerDelete` | En el metodo deleteOldMessages se preguntaba si los segundos del ToDo son menores que los segundo dados.                                                                                                                                                    | Invertir el simbolo para que quede "segundosDelTodo > sec".                               |
 | `CurrentUserTest.testGetsDefaultUser` | El error era que en el metodo getCurrent() la condicion del if estaba invertida. Era si current != null entonces creo usuario, lo que hace que si es null, se retorna null.                                                                                 | Invertir condicion para que quede "current == null".                                      |
 | `CurrentUserTest.testCurrentConcurrent` |                                                                                                                                                                                                                                                             |                                                                                           |
-| `UserServiceTest.testSortedByName` |                                                                                                                                                                                                                                                             |                                                                                           |
+| `UserServiceTest.testSortedByName` | El error era que en el metodo getUsers() de UserService se estaba ordenando la lista por Id.                                                                                                                                                                | Cambiar la linea donde se ordena, reemplazar User::getId por User::getName.               |
 | `UserServiceTest.testAddNullUser` |                                                                                                                                                                                                                                                             |                                                                                           |
 | `UserServiceTest.testLoginUser` |                                                                                                                                                                                                                                                             |                                                                                           |
 | `UserServiceTest.testAddUsersAndClear` |                                                                                                                                                                                                                                                             |                                                                                           |
@@ -34,8 +34,8 @@ mvn test -Dtest=CurrentUserTest#testCurrentConcurrent
 ```
 ### UserServiceTest
 ```bash
-mvn test -Dtest=UserServiceTest#testGetsDefaultUser
-mvn test -Dtest=UserServiceTest#testCurrentConcurrent
+mvn test -Dtest=UserServiceTest#testSortedByName
+mvn test -Dtest=UserServiceTest#testAddNullUser
 mvn test -Dtest=UserServiceTest#testLoginUser
 mvn test -Dtest=UserServiceTest#testAddUsersAndClear
 ```

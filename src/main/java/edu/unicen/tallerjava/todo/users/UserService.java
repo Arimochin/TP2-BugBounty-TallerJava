@@ -35,7 +35,7 @@ public class UserService {
         for (User user : repo.findAll()) {
             result.add(user);
         }
-        result.sort(Comparator.comparing(User::getId));
+        result.sort(Comparator.comparing(User::getName));
         return result;
     }
 
